@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ChamadosFuncionarioComponent } from './chamados-funcionario/chamados-funcionario.component';
 import { DetalhesComponent } from './detalhes/detalhes.component';
-import { RequisicaoDetalhesComponent } from './detalhes/requisicao-detalhes/requisicao-detalhes.component';
+import { ChamadoDetalhesComponent } from './detalhes/requisicao-detalhes/chamado-detalhes.component';
 
 
 
@@ -17,7 +17,7 @@ import { RequisicaoDetalhesComponent } from './detalhes/requisicao-detalhes/requ
     ChamadoComponent,
     ChamadosFuncionarioComponent,
     DetalhesComponent,
-    RequisicaoDetalhesComponent,
+    ChamadoDetalhesComponent,
 
   ],
   imports: [

@@ -28,7 +28,6 @@
               <th>Data de Abertura</th>
               <th>Departamento</th>
               <th>Descrição</th>
-              <th>Equipamento</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -74,7 +73,6 @@
           placeholder="Selecione um departamento"
           [clearable]="false"
           [searchable]="false"
-          class="w-75"
           formControlName="departamentoId">
           <ng-option
             *ngFor="let departamento of (departamentos$ | async)"
@@ -87,11 +85,12 @@
 
 
       <div class="form-group mb-3 position-relative">
-        <label for="nome" class="form-label">Descrição</label>
-        <textarea formControlName="descricao"
+        <label for="descricao" class="form-label">Descrição</label>
+        <textarea name="descricoes" formControlName="descricao"
           [ngClass]="(descricao?.touched && descricao?.invalid) ? 'is-invalid' : ''"
           class="form-control"
           type="text"
+          style="resize: none;">
           placeholder="Digite a descrição do seu problema"></textarea>
           <div class="invalid-tooltip" *ngIf="descricao?.touched && descricao?.invalid">
             <span *ngIf="descricao?.errors?.['required']">A descrição precisa ser preenchida.</span>

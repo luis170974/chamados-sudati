@@ -108,14 +108,14 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
         else
           await this.chamadoService.editar(this.form.value);
 
-        this.toastrService.success(`A requisição foi salva com sucesso!`, "Cadastro de Requisições");
+        this.toastrService.success(`O Chamado foi salva com sucesso!`, "Cadastro de Chamados");
       }
       else
-        this.toastrService.error("Verifique o preenchimento do formulário e tente novamente.", "Cadastro de Requisições")
+        this.toastrService.error("Verifique o preenchimento do formulário e tente novamente.", "Cadastro de Chamados")
 
     } catch (error) {
       if (error != "fechar" && error != "0" && error != "1")
-        this.toastrService.error("Houve um erro ao salvar a requisição. Tente novamente.", "Cadastro de Requisições")
+        this.toastrService.error("Houve um erro ao salvar a chamado. Tente novamente.", "Cadastro de Chamados")
     }
 
   }
@@ -124,9 +124,9 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
     try {
       await this.chamadoService.excluir(requisicao);
 
-      this.toastrService.success(`A requisição foi excluída com sucesso!`, "Cadastro de Requisições");
+      this.toastrService.success(`O Chamado foi excluída com sucesso!`, "Cadastro de Chamados");
     } catch (error) {
-      this.toastrService.error("Houve um erro ao excluir a requisição. Tente novamente.", "Cadastro de Requisições")
+      this.toastrService.error("Houve um erro ao excluir o chamado. Tente novamente.", "Cadastro de Chamados")
     }
   }
 

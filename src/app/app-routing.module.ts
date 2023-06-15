@@ -12,6 +12,13 @@ const routes: Routes =   [{ path: "", redirectTo: "login", pathMatch: "full" },
 
 
 {
+  path: "chamados",
+  loadChildren: () => import("./chamados/chamado.module")
+    .then(m => m.ChamadoModule),
+  canActivate: [AuthGuard]
+},
+
+{
   path: "departamentos",
   loadChildren: () => import("./departamentos/departamento.module")
     .then(m => m.DepartamentosModule),
