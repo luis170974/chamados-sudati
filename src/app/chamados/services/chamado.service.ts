@@ -39,18 +39,18 @@ export class ChamadoService {
     return this.registros.valueChanges()
       .pipe(
         map((requisicoes: Chamado[]) => {
-          requisicoes.forEach(requisicao => {
+          requisicoes.forEach(chamado => {
             this.firestore
               .collection<Departamento>("departamentos")
-              .doc(requisicao.departamentoId)
+              .doc(chamado.departamentoId)
               .valueChanges()
-              .subscribe(d => requisicao.departamento = d);
+              .subscribe(d => chamado.departamento = d);
 
               this.firestore.
               collection<Funcionario>("funcionarios")
-              .doc(requisicao.funcionarioId)
+              .doc(chamado.funcionarioId)
               .valueChanges()
-              .subscribe(f => requisicao.funcionario = f);
+              .subscribe(f => chamado.funcionario = f);
 
 
           });
@@ -66,8 +66,8 @@ export class ChamadoService {
   return this.selecionarTodos()
   .pipe(
     take(1),
-    map(requisicoes => {
-      return requisicoes.filter(requisicoes => requisicoes.id === id)[0];
+    map(chamados => {
+      return chamados.filter(chamados => chamados.id === id)[0];
     })
   );
 

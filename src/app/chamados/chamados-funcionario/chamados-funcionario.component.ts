@@ -16,12 +16,15 @@ import { ChamadoService } from '../services/chamado.service';
   templateUrl: './chamados-funcionario.component.html'
 })
 export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
-  public requisicoes$: Observable<Chamado[]>;
+  public chamados$: Observable<Chamado[]>;
   public departamentos$: Observable<Departamento[]>;
   private processoAutenticado$: Subscription;
 
   public funcionarioLogado: Funcionario;
   public form: FormGroup;
+
+
+
 
   constructor(
     private authService: AuthenticationService,
@@ -46,10 +49,12 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
       departamento: new FormControl(""),
 
 
+
+
     });
 
     this.departamentos$ = this.departamentoService.selecionarTodos();
-    this.requisicoes$ = this.chamadoService.selecionarTodos();
+    this.chamados$ = this.chamadoService.selecionarTodos();
 
     this.processoAutenticado$ = this.authService.usuarioLogado.subscribe(usuario => {
       const email: string = usuario?.email!;
@@ -130,9 +135,11 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
     }
   }
 
+
   private configurarValoresPadrao(): void {
     this.form.get("dataAbertura")?.setValue(new Date());
     this.form.get("funcionarioId")?.setValue(this.funcionarioLogado.id);
+
   }
 
 }

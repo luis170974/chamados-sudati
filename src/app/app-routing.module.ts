@@ -18,6 +18,7 @@ const routes: Routes =   [{ path: "", redirectTo: "login", pathMatch: "full" },
   canActivate: [AuthGuard]
 },
 
+
 {
   path: "departamentos",
   loadChildren: () => import("./departamentos/departamento.module")
@@ -31,6 +32,7 @@ const routes: Routes =   [{ path: "", redirectTo: "login", pathMatch: "full" },
     .then(m => m.FuncionariosModule),
   canActivate: [AuthGuard]
 }
+
 
 ];
 

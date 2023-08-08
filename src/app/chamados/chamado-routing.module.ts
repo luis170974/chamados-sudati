@@ -14,7 +14,7 @@ const routes: Routes = [
 
     ]
   },
-    { path: ":id", component: DetalhesComponent, resolve: { requisicao: ChamadoResolver } }
+    { path: ":id", component: DetalhesComponent, resolve: { chamado: ChamadoResolver } }
 ];
 
 @NgModule({

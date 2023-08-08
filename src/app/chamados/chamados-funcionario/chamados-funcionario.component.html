@@ -3,7 +3,7 @@
     <!-- Conteúdo principal -->
     <div class="col-12 col-md-10 col-lg-9 mx-auto">
       <div class="text-center text-md-start">
-        <h1 class="fw-bold text-primary">Minhas Requisições</h1>
+        <h1 class="fw-bold text-primary">Todos os chamados</h1>
       </div>
 
       <div class="d-grid gap-2 d-md-block mt-4">
@@ -27,28 +27,40 @@
             <tr>
               <th>Data de Abertura</th>
               <th>Departamento</th>
+              <th>Solicitante</th>
               <th>Descrição</th>
+              <th>Status</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody class="text-center">
-            <tr *ngFor="let requisicao of (requisicoes$ | async )">
-              <td class="text-center">{{requisicao.dataAbertura.toDate() | date: 'dd/MM/yyyy HH:mm'}}</td>
-              <td class="text-center">{{requisicao.departamento?.nome}}</td>
-              <td class="text-center">{{requisicao.descricao}}</td>
+            <tr *ngFor="let chamado of (chamados$ | async )">
+              <td class="text-center">{{chamado.dataAbertura.toDate() | date: 'dd/MM/yyyy HH:mm'}}</td>
+              <td class="text-center">{{chamado.departamento?.nome}}</td>
+              <td class="text-center">{{chamado.funcionario?.nome}}</td>
+              <td class="text-center">{{chamado.descricao}}</td>
+
               <td class="text-center d-grid d-md-block">
                 <button
+                [routerLink]="['/chamados', chamado.id]"
+                type="button"
+                class="btn btn-primary me-0 me-md-1 mb-1 mb-md-auto">
+                <i class="pi pi-tags"></i>
+              </button>
+                <button
                   type="button"
-                  (click)="gravar(modal, requisicao)"
+                  (click)="gravar(modal, chamado)"
                   class="btn btn-primary me-0 me-md-1 mb-1 mb-md-auto">
                   <i class="pi pi-user-edit"></i>
                 </button>
                 <button
                   type="button"
-                  (click)="excluir(requisicao)"
+                  (click)="excluir(chamado)"
                   class="btn btn-outline-danger">
                   <i class="pi pi-trash"></i>
                 </button>
+
+
               </td>
             </tr>
           </tbody>
@@ -66,6 +78,19 @@
   </div>
   <form [formGroup]="form" (ngSubmit)="modal.close('enviar')">
     <div class="modal-body">
+
+      <div class="form-group mb-3 position-relative">
+        <label for="nome" class="form-label">Solicitante</label>
+        <input formControlName="nome"
+          class="form-control"
+          type="text"
+          readonly
+          [value]="funcionarioLogado.nome">
+
+
+
+
+      </div>
       <div class="form-group mb-3 position-relative">
         <label for="departamentoId" class="form-label">Departamento destino</label>
         <ng-select
@@ -98,7 +123,7 @@
           </div>
       </div>
 
-    </div>
+
     <div class="modal-footer">
       <button
         type="button"
@@ -107,5 +132,6 @@
         Cancelar</button>
       <button type="submit" class="btn btn-primary col-md-3" [disabled]="this.form.invalid">Salvar</button>
     </div>
-  </form>
+    </div>
+    </form>
 </ng-template>

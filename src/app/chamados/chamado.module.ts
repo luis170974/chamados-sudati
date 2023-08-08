@@ -23,7 +23,6 @@ import { ChamadoDetalhesComponent } from './detalhes/requisicao-detalhes/chamado
   imports: [
     CommonModule,
     ChamadoRoutingModule,
-    NgbModule,
     ReactiveFormsModule,
     NgSelectModule
   ]
