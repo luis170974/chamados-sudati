@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase:  {
-    apiKey: "AIzaSyBaNBIaAWTZoQZ6A3pOeQfWmH1yEqaNK7c",
-    authDomain: "chamados-app-2ed14.firebaseapp.com",
-    projectId: "chamados-app-2ed14",
-    storageBucket: "chamados-app-2ed14.appspot.com",
-    messagingSenderId: "929843226247",
-    appId: "1:929843226247:web:a4d7719b5d9f14799dfa22"
+    apiKey: "AIzaSyBIg3F9TZgOmgKoHoXcgmFORpO7xavnYZw",
+    authDomain: "chamados-app-206a6.firebaseapp.com",
+    projectId: "chamados-app-206a6",
+    storageBucket: "chamados-app-206a6.appspot.com",
+    messagingSenderId: "365049366469",
+    appId: "1:365049366469:web:7fae1ba5baf579fdf96dac"
   }
 };
 

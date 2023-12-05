@@ -13,7 +13,7 @@ export class ChamadoService {
 
   constructor(private firestore: AngularFirestore) {
     this.registros =
-      this.firestore.collection<Chamado>("requisicoes");
+      this.firestore.collection<Chamado>("chamados");
   }
 
   public async inserir(registro: Chamado): Promise<any> {

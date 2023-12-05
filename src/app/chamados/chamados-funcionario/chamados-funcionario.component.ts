@@ -18,6 +18,7 @@ import { ChamadoService } from '../services/chamado.service';
 export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
   public chamados$: Observable<Chamado[]>;
   public departamentos$: Observable<Departamento[]>;
+  public funcionarios$: Observable<Funcionario[]>;
   private processoAutenticado$: Subscription;
 
   public funcionarioLogado: Funcionario;
@@ -54,6 +55,7 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
     });
 
     this.departamentos$ = this.departamentoService.selecionarTodos();
+    this.funcionarios$ = this.funcionarioService.selecionarTodos();
     this.chamados$ = this.chamadoService.selecionarTodos();
 
     this.processoAutenticado$ = this.authService.usuarioLogado.subscribe(usuario => {
@@ -81,6 +83,10 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
 
   get departamentoId() {
     return this.form.get("departamentoId");
+  }
+
+  get funcionarioId() {
+    return this.form.get("funcionarioId");
   }
 
   get descricao() {

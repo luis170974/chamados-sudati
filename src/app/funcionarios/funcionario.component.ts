@@ -98,9 +98,6 @@ export class FuncionarioComponent implements OnInit {
 
           await this.funcionarioService.inserir(this.form.get("funcionario")?.value)
 
-          await this.authService.logout();
-
-          await this.router.navigate(["/login"]);
         }
         else
           await this.funcionarioService.editar(this.form.get("funcionario")?.value);
