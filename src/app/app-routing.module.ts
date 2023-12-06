@@ -23,14 +23,14 @@ const routes: Routes =   [{ path: "", redirectTo: "login", pathMatch: "full" },
   path: "departamentos",
   loadChildren: () => import("./departamentos/departamento.module")
     .then(m => m.DepartamentosModule),
-  canActivate: [AuthGuard]
+  canActivate: [LoginGuard]
 },
 
 {
   path: "funcionarios",
   loadChildren: () => import("./funcionarios/funcionario.module")
     .then(m => m.FuncionariosModule),
-  canActivate: [AuthGuard]
+  canActivate: [LoginGuard]
 }
 
 

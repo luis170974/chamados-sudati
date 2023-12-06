@@ -17,13 +17,13 @@ export class LoginGuard implements CanActivate {
       .pipe(
         take(1),
         map(usuario => {
-          if(!usuario)
+          if(!usuario?.isAnonymous)
             return true;
-          
+
           this.router.navigate(["/painel"]);
           return false;
         })
       )
   }
-  
+
 }

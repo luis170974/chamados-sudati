@@ -77,4 +77,16 @@ export class LoginComponent implements OnInit {
         this.toastrService.error("Houve um erro ao tentar enviar o email! Verifique o endereço.", "Falha na recuperação de conta")
       }
   }
+
+  public entrarSemLogin() {
+
+    const resposta = this.authService.logarAnonimo().then(() =>{
+      
+
+      this.router.navigate(["/painel"]);
+    })
+
+
+
+}
 }

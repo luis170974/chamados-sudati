@@ -144,7 +144,6 @@ export class ChamadosFuncionarioComponent implements OnInit, OnDestroy {
 
   private configurarValoresPadrao(): void {
     this.form.get("dataAbertura")?.setValue(new Date());
-    this.form.get("funcionarioId")?.setValue(this.funcionarioLogado.id);
 
   }
 

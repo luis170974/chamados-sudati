@@ -29,5 +29,8 @@ export class AuthenticationService {
     return this.auth.sendPasswordResetEmail(email);
   }
 
+  public logarAnonimo(){
+    return this.auth.signInAnonymously();
 
+  }
 }
